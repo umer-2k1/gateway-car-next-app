@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 * {
   margin: 0;
   padding: 0;
@@ -10,14 +11,10 @@
   font-family: "Manrope", sans-serif;
 }
 
+
 .custom-btn {
   @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
 }
-
-
-
-
-
 
 
 /* :root {
