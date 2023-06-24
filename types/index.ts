@@ -12,3 +12,17 @@ export interface NavbarLinks{
     title: string;
     url: string;
 }
+
+
+export interface ThemeParameters{
+    type: string;
+    bgColor: string;
+    secondaryBackgroundColor: string;
+    textColor: string;
+    titleColor: string;
+    paraColor: string;
+    btnColor: string;
+    btnTextColor: string;
+    inputBgColor: string;
+    iconColor: string;
+}

@@ -1,8 +1,10 @@
-import React from 'react'
+"use client"
+import React, {useState} from 'react'
 import Image from 'next/image'
 import Link from 'next/link';
 import {NavbarLinks} from '@/types'
-import { MdFavorite, MdHelp,MdNotifications } from 'react-icons/md';
+import { MdFavorite, MdHelp,MdNotifications} from 'react-icons/md';
+import { BsFillMoonStarsFill, BsFillSunFill} from 'react-icons/bs';
 import Logo from '@/public/speedy car rental logo.svg'
 import Avatar from '@/public/avatar.svg'
 
@@ -14,23 +16,24 @@ else
 */ 
 
 const links: NavbarLinks[] = [
+  
     {
         id: 1,
-        icon: <MdHelp className='text-[#596880] text-3xl  '/>,
+        icon: <MdHelp className='text-[#596880] text-3xl'/>,
         title: 'Help',
         url: '/help'
     },
 
     {
         id: 2,
-        icon: <MdFavorite className='text-[#596880] text-3xl  '/>,
+        icon: <MdFavorite className='text-[#596880] text-3xl'/>,
         title: 'Saved',
         url: '/saved'
     },
 
     {
         id: 3,
-        icon: <MdNotifications className='text-[#596880] text-3xl  '/>,
+        icon: <MdNotifications className='text-[#596880] text-3xl'/>,
         title: 'Notifications',
         url: '/notifications'
     },
@@ -41,9 +44,11 @@ const links: NavbarLinks[] = [
         title: 'User',
         url: '/user'
     },
+    
 ]
 
 const Navbar:React.FC = () => {
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
   return (
     // #F6F7F9
     <nav className='bg-[#F6F7F9] flex justify-between items-center py-4'>
@@ -71,6 +76,16 @@ const Navbar:React.FC = () => {
         </div>
     ))
 }
+
+<div className='w-[44px] h-[44px] rounded-full border flex items-center justify-center'>
+        <BsFillMoonStarsFill className='text-[#596880] text-3xl'/>
+    </div>
+
+    <div className='w-[44px] h-[44px] rounded-full border flex items-center justify-center'>
+        <BsFillSunFill className='text-[#596880] text-3xl'/>
+    </div>
+
+
         </div>
 
     </nav>

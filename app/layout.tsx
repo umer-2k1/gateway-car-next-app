@@ -1,6 +1,6 @@
 // Importing Navbar and Footer components
 import {Navbar, Footer} from '@/components/index'
-
+import ThemeContext from '@/context/ThemeContext'
 import './globals.css'
 import { Inter } from 'next/font/google'
 
@@ -23,9 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <ThemeContext>
         <Navbar/>
         {children}
         <Footer/>
+        </ThemeContext>
         
         
         </body>
