@@ -24,9 +24,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ThemeContext>
+          <div className='container'>
         <Navbar/>
         {children}
         <Footer/>
+          </div>
         </ThemeContext>
         
         

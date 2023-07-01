@@ -1,8 +1,13 @@
-import React from 'react'
+"use client"
+import React, {useContext} from 'react'
+import { themeContext } from '@/context/ThemeContext';
 
 const Footer = () => {
+  
+  const {theme} =  useContext(themeContext)
   return (
-    <div>Footer</div>
+    // <div className={`text-${theme.paraColor}`}>Footer</div>
+    <div style={{ color: theme.paraColor }}>Footer</div>
   )
 }
 

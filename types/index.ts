@@ -16,7 +16,7 @@ export interface NavbarLinks{
 
 export interface ThemeParameters{
     type: string;
-    bgColor: string;
+    // bgColor: string;
     secondaryBackgroundColor: string;
     textColor: string;
     titleColor: string;

@@ -1,16 +1,23 @@
-import React, {useState, createContext} from 'react'
+"use client"
+import React, {useState, createContext, useEffect} from 'react'
 import {theLightTheme, theDarkTheme } from '@/theme/theme'
 
-interface ThemeContextValue {
-  theme: typeof theLightTheme | typeof theDarkTheme;
+  type ContextType = {
     toggleTheme: () => void;
-  }
+    mode: string;
+    theme: typeof theLightTheme | typeof theDarkTheme
 
-export const themeContext = createContext<ThemeContextValue | null>(null);
+  };
+
+export const themeContext = createContext<ContextType>({
+  toggleTheme: () => {},
+  mode: 'light',
+  theme: theLightTheme
+});
 
 const ThemeContext:React.FC<{ children: React.ReactNode }> = ({children}) => {
-    const [theme, setTheme] = useState<typeof theLightTheme | typeof theDarkTheme>(theLightTheme)
-    const [mode, setMode] = useState<String>('light')
+    const [theme, setTheme] = useState(theLightTheme)
+    const [mode, setMode] = useState('light')
     const toggleTheme = ()=>{
         const newTheme = mode==='light' ? theDarkTheme : theLightTheme
         const newMode = mode==='light' ? 'dark' : 'light'
@@ -19,8 +26,10 @@ const ThemeContext:React.FC<{ children: React.ReactNode }> = ({children}) => {
     }
   return (
     <>
-      <themeContext.Provider value={{toggleTheme, theme}}>
+      <themeContext.Provider value={{toggleTheme, theme, mode}}>
+        <div className={`theme ${mode}`}>
         {children}
+        </div>
       </themeContext.Provider>
     </>
   )
